@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 12
+  - 14
 
 services:
   - docker
@@ -11,11 +11,11 @@ script:
   - docker tag reverseproxy s2shiroes2/reverseproxy:latest
   - docker tag udagram-api-feed s2shiroes2/api-feed:latest
   - docker tag udagram-api-user s2shiroes2/api-user:latest
-  - docker tag udagram-frontend s2shiroes2/front-end:latest
+  - docker tag udagram-frontend s2shiroes2/front-end:final
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push s2shiroes2/reverseproxy
   - docker push s2shiroes2/api-user
   - docker push s2shiroes2/api-feed
-  - docker push s2shiroes2/front-end
+  - docker push s2shiroes2/front-end:final
