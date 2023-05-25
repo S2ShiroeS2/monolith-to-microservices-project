@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: reverseproxy
+  name: reverseproxy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reverseproxy
+  template:
+    metadata:
+      labels:
+        service: reverseproxy
+        app: reverseproxy
+    spec:
+      containers:
+        - image: s2shiroes2/reverseproxy
+          name: reverseproxy
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
