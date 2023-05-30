@@ -1,0 +1,27 @@
+kubectl apply -f ./k8s/aws-secret.yaml
+kubectl apply -f ./k8s/env-configmap.yaml
+kubectl apply -f ./k8s/env-secret.yaml
+
+kubectl apply -f ./k8s/service-frontend.yaml
+kubectl apply -f ./k8s/service-feed.yaml
+kubectl apply -f ./k8s/service-user.yaml
+kubectl apply -f ./k8s/service-reverseproxy.yaml
+
+kubectl apply -f ./k8s/deployment-frontend.yaml
+kubectl apply -f ./k8s/deployment-feed.yaml
+kubectl apply -f ./k8s/deployment-user.yaml
+kubectl apply -f ./k8s/deployment-reverseproxy.yaml
+
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
+kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
+
+kubectl delete deploy backend-feed
+kubectl delete deploy backend-user
+kubectl delete deploy reverseproxy
+
+kubectl delete service publicfrontend
+kubectl delete service publicreverseproxy
+"@types/bluebird": "^3.5.26",
+
+kubectl get pods
+kubectl get deployments
