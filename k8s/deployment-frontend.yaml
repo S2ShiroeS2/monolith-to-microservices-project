@@ -17,7 +17,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: s2shiroes2/front-end:latest
+        - image: s2shiroes2/front-end:v2
           name: frontend
           imagePullPolicy: Always
           ports:
