@@ -6,20 +6,16 @@ services:
   - docker
 
 script:
-  # - docker --version # print the version for logging
-  # - docker-compose -f docker-compose-build.yaml build --parallel
+  - docker --version # print the version for logging
+  - docker-compose -f docker-compose-build.yaml build --parallel
   # - docker tag reverseproxy s2shiroes2/reverseproxy
   # - docker tag udagram-api-feed s2shiroes2/api-feed
   # - docker tag udagram-api-user s2shiroes2/api-user
-  # - docker tag udagram-frontend:v2 s2shiroes2/front-end:v2
-  - docker build -t udagram-frontend:v2c ./udagram-frontend
-
-  - docker tag udagram-frontend:v2c s2shiroes2/front-end:v2c
+  - docker tag udagram-frontend:v2e s2shiroes2/front-end:v2e
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   # - docker push s2shiroes2/reverseproxy
   # - docker push s2shiroes2/api-user
   # - docker push s2shiroes2/api-feed
-  # - docker push s2shiroes2/front-end:v2
-  - docker push s2shiroes2/front-end:v2c
+  - docker push s2shiroes2/front-end:v2e
