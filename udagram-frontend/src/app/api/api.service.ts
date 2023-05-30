@@ -63,7 +63,6 @@ export class ApiService {
 	}
 
 	async upload(endpoint: string, file: File, payload: any): Promise<any> {
-		debugger;
 		const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`))
 			.url;
 

@@ -16,7 +16,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-        - image: s2shiroes2/reverseproxy
+        - image: s2shiroes2/reverseproxy:latest
           name: reverseproxy
           imagePullPolicy: Always
           resources:

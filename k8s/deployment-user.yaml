@@ -16,7 +16,7 @@ spec:
         app: backend-user
     spec:
       containers:
-        - image: s2shiroes2/api-user
+        - image: s2shiroes2/api-user:latest
           name: api-user
           imagePullPolicy: Always
           resources:

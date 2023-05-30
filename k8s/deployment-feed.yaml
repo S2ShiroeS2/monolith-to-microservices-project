@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api-feed
-          image: s2shiroes2/api-feed
+          image: s2shiroes2/api-feed:latest
           imagePullPolicy: Always
           resources:
             requests:
